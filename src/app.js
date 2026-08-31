@@ -1,3 +1,4 @@
+import { createForm, fieldDefinitions } from "./form.js";
 
 
 const toDoList = [];
@@ -16,6 +17,8 @@ function addTaskToList(title, description, dueDate, priority, notes) {
     const newTask = new Task(title, description, dueDate, priority, notes);
     toDoList.push(newTask)
 };
+
+createForm(fieldDefinitions);
 
 
 
