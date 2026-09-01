@@ -9,7 +9,7 @@ export const fieldDefinitions = [
 export function createForm(fields) {
     const form = document.createElement("form");
     form.id = "task-form";
-    document.querySelector("#task-dialogue").append(form);
+    document.querySelector("#task-dialog").append(form);
     
     fields.forEach(field => {
         const label = document.createElement("label")
@@ -17,6 +17,7 @@ export function createForm(fields) {
         label.htmlFor = field.id;
         form.append(label);
 
+        // creates the options under select element
         if (field.type === "select") {
             const selection = document.createElement("select");
             selection.id = field.id;
@@ -35,5 +36,10 @@ export function createForm(fields) {
             form.append(input);
         };
     });
+
+    const submitBtn = document.createElement("button");
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.textContent = "Submit";
+    form.append(submitBtn);
 };
 

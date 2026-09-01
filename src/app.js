@@ -18,7 +18,15 @@ function addTaskToList(title, description, dueDate, priority, notes) {
     toDoList.push(newTask)
 };
 
+
+// build the form once, and .showModal() will show the form that is invisible.
 createForm(fieldDefinitions);
+
+const addTaskBtn = document.querySelector("#addTaskBtn");
+addTaskBtn.addEventListener("click", () => {
+    document.querySelector("#task-dialog").showModal();
+});
+
 
 
 
