@@ -41,5 +41,7 @@ export function createForm(fields) {
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
     form.append(submitBtn);
+
+    return form;
 };
 
