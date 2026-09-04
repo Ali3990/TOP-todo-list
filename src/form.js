@@ -38,9 +38,17 @@ export function createForm(fields) {
     });
 
     const submitBtn = document.createElement("button");
-    submitBtn.setAttribute("type", "submit");
+    submitBtn.type = "submit";
     submitBtn.textContent = "Submit";
     form.append(submitBtn);
+    
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.textContent = "Cancel";
+    closeBtn.addEventListener("click", () =>{
+        document.querySelector("#task-dialog").close();
+    });
+    form.append(closeBtn)
 
     return form;
 };

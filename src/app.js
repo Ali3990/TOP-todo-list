@@ -9,13 +9,13 @@ function Task(title, description, dueDate, priority, notes) {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.notes = notes;
 };
 
 // pushes task to the render list
-function addTaskToList(title, description, dueDate, priority, notes) {
-    const newTask = new Task(title, description, dueDate, priority, notes);
-    toDoList.push(newTask)
+function addTaskToList(title, description, dueDate, priority) {
+    const newTask = new Task(title, description, dueDate, priority);
+    toDoList.push(newTask);
+    console.log(toDoList);
 };
 
 
@@ -35,6 +35,10 @@ taskForm.addEventListener("submit", (event) => {
     const priorityEntry = document.querySelector("#priority-field").value;
 
     addTaskToList(titleEntry, descriptionEntry, dueDateEntry, priorityEntry);
+    
+    // reset form entries and close.
+    taskForm.reset()
+    document.querySelector("#task-dialog").close();
 });
 
 // createForm(fieldDefinitions); ran and .showModal() will reveal the form that is invisible while 
