@@ -1,7 +1,5 @@
 import { createForm, fieldDefinitions } from "./form.js";
-
-
-const toDoList = [];
+import { renderTasks } from "./dom.js";
 
 // construction function.
 function Task(title, description, dueDate, priority, notes) {
@@ -11,15 +9,27 @@ function Task(title, description, dueDate, priority, notes) {
     this.priority = priority;
 };
 
-// pushes task to the render list
-function addTaskToList(title, description, dueDate, priority) {
-    const newTask = new Task(title, description, dueDate, priority);
-    toDoList.push(newTask);
-    console.log(toDoList);
+function Project(name) {
+    this.name = name;
+    this.todos = [];
 };
 
+//store all the project categories
+const projects = [];
+const defaultProject = new Project("Default");
+projects.push(defaultProject);
+
+let currentProject = defaultProject;
 
 
+// pushes task to the list to render in DOM later.
+function addTaskToList(title, description, dueDate, priority) {
+    const newTask = new Task(title, description, dueDate, priority);
+    currentProject.todos.push(newTask);
+    console.log(currentProject.todos);
+};
+
+const dialog = document.querySelector("#task-dialog");
 const taskForm = createForm(fieldDefinitions);
 
 // the <form> element has a special "submit" event type built-in. The browser fires off
@@ -37,8 +47,11 @@ taskForm.addEventListener("submit", (event) => {
     addTaskToList(titleEntry, descriptionEntry, dueDateEntry, priorityEntry);
     
     // reset form entries and close.
-    taskForm.reset()
-    document.querySelector("#task-dialog").close();
+    taskForm.reset();
+    dialog.close();
+
+    // after the submit button is pressed, it will render the tasks onto the page.
+    renderTasks(currentProject.todos);
 });
 
 // createForm(fieldDefinitions); ran and .showModal() will reveal the form that is invisible while 
@@ -47,6 +60,7 @@ const addTaskBtn = document.querySelector("#addTaskBtn");
 addTaskBtn.addEventListener("click", () => {
     document.querySelector("#task-dialog").showModal();
 });
+
 
 
 
