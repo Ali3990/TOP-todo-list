@@ -1,6 +1,7 @@
 import { createForm, fieldDefinitions } from "./form.js";
 import { renderTasks } from "./dom.js";
-import { currentProject } from "./projects.js";
+import { getCurrentProject } from "./projects.js";
+
 
 // construction function.
 function Task(title, description, dueDate, priority, notes) {
@@ -14,8 +15,8 @@ function Task(title, description, dueDate, priority, notes) {
 // pushes task to the list to render in DOM later.
 function addTaskToList(title, description, dueDate, priority) {
     const newTask = new Task(title, description, dueDate, priority);
-    currentProject.todos.push(newTask);
-    console.log(currentProject.todos);
+    getCurrentProject().todos.push(newTask);
+    console.log(getCurrentProject().todos);
 };
 
 const dialog = document.querySelector("#task-dialog");
@@ -27,12 +28,10 @@ const taskForm = createForm(fieldDefinitions);
 // (remember: the createForm function returns the form object called "const form").
 taskForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    
     const titleEntry = document.querySelector("#title-field").value;
     const descriptionEntry = document.querySelector("#description-field").value;
     const dueDateEntry = document.querySelector("#due-date-field").value;
     const priorityEntry = document.querySelector("#priority-field").value;
-
     addTaskToList(titleEntry, descriptionEntry, dueDateEntry, priorityEntry);
     
     // reset form entries and close.
@@ -40,7 +39,7 @@ taskForm.addEventListener("submit", (event) => {
     dialog.close();
 
     // after the submit button is pressed, it will render the tasks onto the page.
-    renderTasks(currentProject.todos);
+    renderTasks(getCurrentProject().todos);
 });
 
 // createForm(fieldDefinitions); ran and .showModal() will reveal the form that is invisible while 

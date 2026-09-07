@@ -26,7 +26,7 @@ export function getCurrentProject() {
     return currentProject;
 };
 
-export function setCurrentProject() {
+export function setCurrentProject(project) {
     if (projects.includes(project)) {
         currentProject = project;
     };
