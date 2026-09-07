@@ -1,5 +1,6 @@
 import { createForm, fieldDefinitions } from "./form.js";
 import { renderTasks } from "./dom.js";
+import { currentProject } from "./projects.js";
 
 // construction function.
 function Task(title, description, dueDate, priority, notes) {
@@ -8,18 +9,6 @@ function Task(title, description, dueDate, priority, notes) {
     this.dueDate = dueDate;
     this.priority = priority;
 };
-
-function Project(name) {
-    this.name = name;
-    this.todos = [];
-};
-
-//store all the project categories
-const projects = [];
-const defaultProject = new Project("Default");
-projects.push(defaultProject);
-
-let currentProject = defaultProject;
 
 
 // pushes task to the list to render in DOM later.
