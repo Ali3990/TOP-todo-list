@@ -17,3 +17,15 @@ export function renderTasks(tasks) {
         container.append(taskCard);
     });
 };
+
+export function renderProjects(projects, onSelectProject) {
+    const container = document.querySelector("#project-list");
+    container.innerHTML = '';
+
+    projects.forEach((project) => {
+        const projectE1 = document.createElement("div");
+        projectE1.textContent = project.name;
+        projectE1.addEventListener("click", () => onSelectProject(project));
+        container.append(projectE1);
+    });
+};

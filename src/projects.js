@@ -5,7 +5,7 @@ export function Project(name) {
 
 //store all the project categories
 const projects = [];
-const defaultProject = new Project("Default");
+const defaultProject = new Project("There are currently no projects :(");
 projects.push(defaultProject);
 
 let currentProject = defaultProject;
@@ -34,6 +34,5 @@ export function setCurrentProject(project) {
 
 export function getProjects() {
     return projects;
-}
+};
 
-// create a btn for createProject, pass name input and invoke addProject function.

@@ -1,6 +1,6 @@
 import { createForm, fieldDefinitions } from "./form.js";
-import { renderTasks } from "./dom.js";
-import { getCurrentProject } from "./projects.js";
+import { renderTasks, renderProjects } from "./dom.js";
+import { addProject, getCurrentProject, setCurrentProject, getProjects } from "./projects.js";
 
 
 // construction function.
@@ -48,6 +48,34 @@ const addTaskBtn = document.querySelector("#addTaskBtn");
 addTaskBtn.addEventListener("click", () => {
     document.querySelector("#task-dialog").showModal();
 });
+
+
+// selects the current project
+function handleProjectSelect(project) {
+    setCurrentProject(project);
+    renderProjects(getProjects(), handleProjectSelect);
+    renderTasks(getCurrentProject().todos);
+};
+
+
+// opens up a simple input window to enter project name
+const addProjBtn = document.querySelector("#addProjBtn");
+addProjBtn.addEventListener("click", () => {
+    let projectInput = prompt("Project name: ");
+    const trimmedProjName = projectInput.trim();
+    
+    if (trimmedProjName === "") {
+        return null
+    };
+
+    addProject(trimmedProjName);
+    renderTasks(getCurrentProject().todos);
+    renderProjects(getProjects(), handleProjectSelect);
+});
+
+// initial render of the project list
+renderTasks(getCurrentProject().todos);
+renderProjects(getProjects(), handleProjectSelect);
 
 
 
