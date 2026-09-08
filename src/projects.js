@@ -5,7 +5,7 @@ export function Project(name) {
 
 //store all the project categories
 const projects = [];
-const defaultProject = new Project("There are currently no projects :(");
+const defaultProject = new Project("Default");
 projects.push(defaultProject);
 
 let currentProject = defaultProject;

@@ -62,6 +62,9 @@ function handleProjectSelect(project) {
 const addProjBtn = document.querySelector("#addProjBtn");
 addProjBtn.addEventListener("click", () => {
     let projectInput = prompt("Project name: ");
+    if (projectInput === null) {
+        return;
+    }
     const trimmedProjName = projectInput.trim();
     
     if (trimmedProjName === "") {
