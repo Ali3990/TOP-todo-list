@@ -18,3 +18,12 @@
     align-items: center;
     margin-bottom: 8px;
 }
+
+.tasks {
+    background-color: rgb(252, 253, 157);
+    border-radius: 7px;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    padding: 1rem;
+
+}
