@@ -11,12 +11,15 @@
 
 #task-form input {
     margin-bottom: 5px;
+    padding: 2px;
 }
 
 #description-field {
     box-sizing: border-box;
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
     height: 50px;
-    padding: 4px;
+    max-height: 300px;
+    padding: 2px;
+    margin-bottom: 5px;
 }
