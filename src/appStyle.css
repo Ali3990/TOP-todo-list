@@ -1,5 +1,10 @@
+body {
+    background-color: rgb(251, 252, 253);
+}
+
 .content-area {
     display: flex;
+    margin-top: 1rem;
 }
 
 #project-list {
@@ -19,11 +24,20 @@
     margin-bottom: 8px;
 }
 
+#task-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .tasks {
     background-color: rgb(252, 253, 157);
     border-radius: 7px;
     margin-bottom: 1rem;
     margin-left: 1rem;
     padding: 1rem;
+    width: 200px;
+    height: 200px;
 
 }
+
+
