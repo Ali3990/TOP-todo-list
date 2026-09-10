@@ -1,7 +1,7 @@
 // Create task form 
 export const fieldDefinitions = [
     {id: "title-field", label: "Title: ", type: "text", },
-    {id: "description-field", label: "Description: ", type: "text"},
+    {id: "description-field", label: "Description: ", type: "textarea"},
     {id: "due-date-field", label: "Due date: ", type: "date"},
     {id: "priority-field", label: "Priority: ", type: "select", options: ["low", "medium", "high"]},
 ];
@@ -29,6 +29,10 @@ export function createForm(fields) {
                 selection.append(optionElement);
             });
             form.append(selection);
+        } else if (field.type === "textarea") {
+            const textarea = document.createElement("textarea");
+            textarea.id = field.id;
+            form.append(textarea);
         } else {
             const input = document.createElement("input");
             input.type = field.type;

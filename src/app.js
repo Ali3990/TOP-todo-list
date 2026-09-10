@@ -2,6 +2,7 @@ import { createForm, fieldDefinitions } from "./form.js";
 import { renderTasks, renderProjects } from "./dom.js";
 import { addProject, getCurrentProject, setCurrentProject, getProjects } from "./projects.js";
 import "./appStyle.css"
+import "./formStyle.css"
 
 
 // construction function.

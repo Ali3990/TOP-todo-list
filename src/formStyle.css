@@ -1,0 +1,22 @@
+#task-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#task-form label {
+    margin-right: 4px;
+    margin-left: auto;
+    margin-bottom: 5px;
+}
+
+#task-form input {
+    margin-bottom: 5px;
+}
+
+#description-field {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    padding: 4px;
+}
