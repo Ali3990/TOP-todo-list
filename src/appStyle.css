@@ -7,23 +7,46 @@ body {
     margin-top: 1rem;
 }
 
+h1 {
+    margin-left: 240px;
+}
+
+#addProjBtn {
+    margin-left: 70px;
+}
+
+#addTaskBtn {
+    margin-left: 120px;
+}
+
 #project-list {
-    background-color: rgb(192, 214, 213);
-    min-height: 800px;
+    background-color: rgb(176, 182, 177);
+    min-height: 100vh;
     max-height: auto;
     width: 200px;      
     padding: 1rem;
     border-radius: 7px;
 }
 
+.project-item, button {
+    cursor: pointer;
+}
+
 .project-item {
-    border: 2px solid ivory;
+    border: 2px solid rgb(58, 95, 48);
     border-radius: 5px;
     padding: 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 8px;
+}
+
+.project-item.selected {
+    color: white;
+    background-color: rgb(20, 90, 50);
+    border-color: rgb(20, 90, 50);
+    font-weight: bold;
 }
 
 #task-grid {
@@ -33,7 +56,7 @@ body {
 }
 
 .tasks {
-    background-color: rgb(252, 253, 157);
+    box-shadow: 0 3px 9px rgba(0,0,0, 0.2);
     border-radius: 7px;
     margin-bottom: 1rem;
     margin-left: 1rem;
@@ -50,4 +73,17 @@ body {
     -webkit-box-orient: vertical;
 }
 
+/* cycle colors for the tasks*/
+.tasks:nth-child(4n+1) {
+    background-color: rgb(254, 255, 186); /* card 1, 5, 9, ... */
+}
+.tasks:nth-child(4n+2) {
+    background-color: rgb(185, 229, 252); /* card 2, 6, 10, ... */
+}
+.tasks:nth-child(4n+3) {
+    background-color: rgb(251, 183, 213); /* card 3, 7, 11, ... */
+}
+.tasks:nth-child(4n+4) {
+    background-color: rgb(204, 248, 180); /* card 4, 8, 12, ... */
+}
 

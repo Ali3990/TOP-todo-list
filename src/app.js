@@ -55,7 +55,7 @@ addTaskBtn.addEventListener("click", () => {
 // selects the current project
 function handleProjectSelect(project) {
     setCurrentProject(project);
-    renderProjects(getProjects(), handleProjectSelect);
+    renderProjects(getProjects(), getCurrentProject(), handleProjectSelect);
     renderTasks(getCurrentProject().todos);
 };
 
@@ -75,12 +75,12 @@ addProjBtn.addEventListener("click", () => {
 
     addProject(trimmedProjName);
     renderTasks(getCurrentProject().todos);
-    renderProjects(getProjects(), handleProjectSelect);
+    renderProjects(getProjects(), getCurrentProject(), handleProjectSelect);
 });
 
 // initial render of the project list
 renderTasks(getCurrentProject().todos);
-renderProjects(getProjects(), handleProjectSelect);
+renderProjects(getProjects(), getCurrentProject(), handleProjectSelect);
 
 
 
